@@ -15,5 +15,34 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
 
-        <bean id="s1" class="com.coding.IOC.Student"></bean>
+    <bean id="s1" class="com.coding.IOC01.Student"></bean>
+
+    <bean id="s2" class="com.coding.DI_set.Student">
+        <property name="name" value="小明"></property>
+        <property name="age" value="20"></property>
+    </bean>
+    <context:component-scan base-package="com.coding.IOC01"></context:component-scan>
+    <context:component-scan base-package="com.coding.DI"></context:component-scan>
+    <context:component-scan base-package="com.coding.DI_set"></context:component-scan>
+    <bean id="company" class="com.coding.DI_set.Company">
+        <property name="manager" ref="manager"></property>
+        <property name="p1" ref="p1"></property>
+        <property name="p2" ref="p2"></property>
+        <property name="p3" ref="p3"></property>
+    </bean>
+    <bean id="manager" class="com.coding.DI_set.Manager"></bean>
+    <bean id="p1" class="com.coding.DI_set.Programmer"></bean>
+    <bean id="p2" class="com.coding.DI_set.Programmer"></bean>
+    <bean id="p3" class="com.coding.DI_set.Programmer"></bean>
+
+    <bean id="company2" class="com.coding.DI_argument_constructor.Company">
+        <constructor-arg name="manager" ref="manager_2"></constructor-arg>
+        <constructor-arg name = "p1"  ref="p1_2"></constructor-arg>
+        <constructor-arg name = "p2" ref="p2_2"></constructor-arg>
+        <constructor-arg name="p3" ref="p3_2"></constructor-arg>
+    </bean>
+    <bean id="manager_2" class="com.coding.DI_argument_constructor.Manager"></bean>
+    <bean id="p1_2" class="com.coding.DI_argument_constructor.Programmer"></bean>
+    <bean id="p2_2" class="com.coding.DI_argument_constructor.Programmer"></bean>
+    <bean id="p3_2" class="com.coding.DI_argument_constructor.Programmer"></bean>
 </beans>

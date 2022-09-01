@@ -1,4 +1,4 @@
-package com.coding.IOC;
+package com.coding.IOC01;
 
 public class Student {
     public void study() {
